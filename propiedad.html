@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detalle de propiedad — Buhonegro Propiedades</title>
+  <meta name="description" content="Detalle completo de la propiedad. Galería, características, ubicación y formulario de contacto." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* Estilos específicos de ficha */
+    .ficha-hero { padding-top: 88px; background: var(--negro); color: var(--blanco); padding-bottom: 0; }
+    .ficha-breadcrumb { font-size: .8rem; color: rgba(255,255,255,.45); padding: 20px 0 12px; }
+    .ficha-breadcrumb a { color: rgba(255,255,255,.45); transition: color .2s; }
+    .ficha-breadcrumb a:hover { color: var(--blanco); }
+    .ficha-breadcrumb span { margin: 0 6px; }
+
+    .ficha-header { padding: 16px 0 32px; }
+    .ficha-badges { display: flex; gap: 8px; margin-bottom: 14px; }
+    .ficha-titulo { font-family: var(--font-titulo); font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 700; line-height: 1.2; }
+    .ficha-ubicacion { display: flex; align-items: center; gap: 6px; color: rgba(255,255,255,.6); font-size: .9rem; margin-top: 8px; }
+    .ficha-precio-bloque { display: flex; align-items: baseline; gap: 12px; margin-top: 16px; }
+    .ficha-precio { font-family: var(--font-titulo); font-size: 2rem; font-weight: 700; color: var(--dorado-claro); }
+    .ficha-expensas { font-size: .85rem; color: rgba(255,255,255,.5); }
+
+    /* Galería */
+    .galeria-wrap { background: var(--negro); padding-bottom: 0; }
+    .galeria-principal { position: relative; aspect-ratio: 16/7; overflow: hidden; cursor: pointer; }
+    .galeria-principal img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+    .galeria-principal:hover img { transform: scale(1.02); }
+    .galeria-thumbs { display: flex; gap: 8px; padding: 8px 0 0; overflow-x: auto; }
+    .galeria-thumb { width: 120px; flex-shrink: 0; aspect-ratio: 4/3; overflow: hidden; border-radius: 6px; cursor: pointer; opacity: .55; transition: opacity .2s; border: 2px solid transparent; }
+    .galeria-thumb:hover, .galeria-thumb.activa { opacity: 1; border-color: var(--dorado); }
+    .galeria-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .galeria-contador { position: absolute; bottom: 16px; right: 16px; background: rgba(0,0,0,.6); color: var(--blanco); padding: 6px 12px; border-radius: 999px; font-size: .78rem; font-weight: 600; backdrop-filter: blur(8px); }
+
+    /* Layout de ficha */
+    .ficha-body { padding: 56px 0; }
+    .ficha-layout { display: grid; grid-template-columns: 1fr 380px; gap: 56px; align-items: start; }
+    .ficha-main { }
+    .ficha-sidebar { position: sticky; top: 100px; }
+
+    /* Specs */
+    .specs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 40px; }
+    .spec-card { background: var(--crema); border-radius: var(--radio); padding: 18px 16px; text-align: center; }
+    .spec-card-valor { font-family: var(--font-titulo); font-size: 1.5rem; font-weight: 700; color: var(--negro); }
+    .spec-card-label { font-size: .75rem; color: var(--gris-medio); margin-top: 4px; font-weight: 500; text-transform: uppercase; letter-spacing: .06em; }
+    .spec-card-icono { font-size: 1.2rem; margin-bottom: 6px; }
+
+    /* Descripción */
+    .ficha-seccion-titulo { font-family: var(--font-titulo); font-size: 1.2rem; font-weight: 700; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid var(--beige); }
+    .ficha-descripcion { font-size: .95rem; color: var(--gris-oscuro); line-height: 1.8; margin-bottom: 40px; }
+
+    /* Amenities */
+    .amenities-lista { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 40px; }
+    .amenity-item { display: flex; align-items: center; gap: 8px; font-size: .88rem; color: var(--gris-oscuro); }
+    .amenity-check { color: var(--dorado); font-weight: 700; }
+
+    /* Ficha técnica */
+    .ficha-tecnica { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 40px; }
+    .ficha-fila { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--beige); }
+    .ficha-fila-label { font-size: .83rem; color: var(--gris-medio); font-weight: 500; }
+    .ficha-fila-valor { font-size: .88rem; font-weight: 600; color: var(--negro); }
+
+    /* Sidebar card */
+    .sidebar-card { background: var(--blanco); border-radius: var(--radio-lg); box-shadow: var(--sombra-l); overflow: hidden; }
+    .sidebar-card-header { background: var(--negro); color: var(--blanco); padding: 24px; }
+    .sidebar-card-titulo { font-family: var(--font-titulo); font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; }
+    .sidebar-card-micro { font-size: .8rem; color: rgba(255,255,255,.6); line-height: 1.5; }
+    .sidebar-card-body { padding: 24px; }
+    .sidebar-acciones { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--beige); }
+    .asesor-info { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .asesor-avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--beige); display: flex; align-items: center; justify-content: center; font-family: var(--font-titulo); font-size: 1.1rem; font-weight: 700; color: var(--dorado); flex-shrink: 0; }
+    .asesor-nombre { font-weight: 700; font-size: .9rem; }
+    .asesor-rol { font-size: .78rem; color: var(--gris-medio); }
+
+    /* Propiedades similares */
+    .similares-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+    @media (max-width: 900px) {
+      .ficha-layout { grid-template-columns: 1fr; }
+      .ficha-sidebar { position: relative; top: 0; }
+      .specs-grid { grid-template-columns: repeat(2, 1fr); }
+      .similares-grid { grid-template-columns: 1fr 1fr; }
+      .ficha-tecnica { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .specs-grid { grid-template-columns: repeat(2, 1fr); }
+      .similares-grid { grid-template-columns: 1fr; }
+      .amenities-lista { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER reutilizado -->
+<header id="header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="logo">Buhonegro<span>.</span></a>
+      <nav id="nav-desktop">
+        <a href="index.html#propiedades" class="nav-link">Propiedades</a>
+        <a href="index.html#comprar"     class="nav-link">Comprar</a>
+        <a href="index.html#alquilar"    class="nav-link">Alquilar</a>
+        <a href="index.html#vender"      class="nav-link">Vender</a>
+        <a href="index.html#tasacion"    class="nav-link">Tasar</a>
+        <a href="index.html#contacto"    class="nav-link">Contacto</a>
+      </nav>
+      <div class="header-ctas">
+        <a href="index.html#tasacion" class="btn-header-secundario">Tasación</a>
+        <a href="index.html#contacto" class="btn-header-primario">Agendar asesoramiento</a>
+      </div>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="nav-mobile" id="nav-mobile">
+  <span class="nav-mobile-close" id="nav-mobile-close">✕</span>
+  <a href="index.html#propiedades" class="nav-link">Propiedades</a>
+  <a href="index.html#comprar"     class="nav-link">Comprar</a>
+  <a href="index.html#alquilar"    class="nav-link">Alquilar</a>
+  <a href="index.html#vender"      class="nav-link">Vender</a>
+  <a href="index.html#tasacion"    class="nav-link">Tasar</a>
+  <a href="index.html#contacto"    class="nav-link">Contacto</a>
+</div>
+
+
+<!-- HERO / HEADER FICHA -->
+<div class="ficha-hero">
+  <div class="container">
+    <div class="ficha-breadcrumb">
+      <a href="index.html">Inicio</a>
+      <span>/</span>
+      <a href="index.html#propiedades">Propiedades</a>
+      <span>/</span>
+      <span id="breadcrumb-titulo">Cargando…</span>
+    </div>
+    <div class="ficha-header">
+      <div class="ficha-badges" id="ficha-badges"></div>
+      <h1 class="ficha-titulo" id="ficha-titulo">Cargando propiedad…</h1>
+      <div class="ficha-ubicacion" id="ficha-ubicacion">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span id="ficha-ubicacion-texto">—</span>
+      </div>
+      <div class="ficha-precio-bloque">
+        <div class="ficha-precio" id="ficha-precio">—</div>
+        <div class="ficha-expensas" id="ficha-expensas"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Galería -->
+  <div class="galeria-wrap">
+    <div class="container">
+      <div class="galeria-principal" id="galeria-principal">
+        <img id="galeria-img-principal" src="" alt="Foto principal" />
+        <div class="galeria-contador" id="galeria-contador">1 / 1</div>
+      </div>
+      <div class="galeria-thumbs" id="galeria-thumbs"></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- CUERPO DE FICHA -->
+<div class="ficha-body">
+  <div class="container">
+    <div class="ficha-layout">
+
+      <!-- Columna principal -->
+      <div class="ficha-main">
+
+        <!-- Specs destacadas -->
+        <div class="specs-grid" id="specs-grid"></div>
+
+        <!-- Descripción -->
+        <div>
+          <div class="ficha-seccion-titulo">Descripción</div>
+          <p class="ficha-descripcion" id="ficha-descripcion">Cargando…</p>
+        </div>
+
+        <!-- Ficha técnica -->
+        <div>
+          <div class="ficha-seccion-titulo">Ficha técnica</div>
+          <div class="ficha-tecnica" id="ficha-tecnica"></div>
+        </div>
+
+        <!-- Amenities -->
+        <div id="seccion-amenities" class="hidden">
+          <div class="ficha-seccion-titulo">Amenities</div>
+          <div class="amenities-lista" id="amenities-lista"></div>
+        </div>
+
+        <!-- Microcopy -->
+        <div style="background:var(--crema);border-radius:var(--radio);padding:20px 24px;margin-bottom:40px;font-size:.85rem;color:var(--gris-medio);line-height:1.6;">
+          💡 Un asesor se comunicará para confirmar disponibilidad, requisitos y coordinar la visita. La información de precio y características está sujeta a cambios. Consultá siempre con nuestro equipo antes de avanzar.
+        </div>
+
+      </div><!-- /.ficha-main -->
+
+
+      <!-- Sidebar fijo -->
+      <aside class="ficha-sidebar">
+        <div class="sidebar-card">
+          <div class="sidebar-card-header">
+            <div class="sidebar-card-titulo">¿Te interesa esta propiedad?</div>
+            <div class="sidebar-card-micro">Completá el formulario y un asesor te responde a la brevedad.</div>
+          </div>
+          <div class="sidebar-card-body">
+            <div class="asesor-info" id="asesor-info">
+              <div class="asesor-avatar" id="asesor-avatar">—</div>
+              <div>
+                <div class="asesor-nombre" id="asesor-nombre">Asesor asignado</div>
+                <div class="asesor-rol">Asesor inmobiliario</div>
+              </div>
+            </div>
+
+            <form id="form-ficha" data-canal="ficha">
+              <input type="hidden" name="propiedadConsultada" id="campo-propiedad-id" value="" />
+              <div class="campo">
+                <label>Nombre *</label>
+                <input type="text" name="nombre" required placeholder="Tu nombre" />
+              </div>
+              <div class="campo">
+                <label>Teléfono *</label>
+                <input type="tel" name="telefono" required placeholder="+54 261…" />
+              </div>
+              <div class="campo">
+                <label>Email *</label>
+                <input type="email" name="email" required placeholder="tu@email.com" />
+              </div>
+              <div class="campo">
+                <label>Mensaje</label>
+                <textarea name="mensaje" rows="3" placeholder="Quiero más información sobre esta propiedad…"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primario" style="width:100%;justify-content:center;">Quiero más información →</button>
+            </form>
+
+            <div class="sidebar-acciones">
+              <button id="btn-agendar-visita" class="btn btn-dorado" style="justify-content:center;">📅 Agendar visita</button>
+              <a id="btn-wsp-ficha" href="#" class="btn btn-wsp" style="justify-content:center;" target="_blank">💬 Consultar por WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+    </div><!-- /.ficha-layout -->
+  </div><!-- /.container -->
+</div><!-- /.ficha-body -->
+
+
+<!-- PROPIEDADES SIMILARES -->
+<section class="seccion seccion-beige">
+  <div class="container">
+    <div class="seccion-header">
+      <p class="eyebrow">También te puede interesar</p>
+      <h2 class="titulo-md" style="margin-top:8px;">Propiedades similares</h2>
+    </div>
+    <div class="similares-grid" id="similares-grid"></div>
+    <div class="text-center mt-48">
+      <a href="index.html#propiedades" class="btn btn-borde btn-lg">Ver todas las propiedades →</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Buhonegro<span>.</span></div>
+        <p class="footer-desc">Inmobiliaria moderna orientada a resultados. Compra, venta, alquiler y tasación con asesoramiento real y tecnología aplicada.</p>
+      </div>
+      <div>
+        <div class="footer-col-titulo">Servicios</div>
+        <div class="footer-links">
+          <a href="index.html#comprar"   class="footer-link">Comprar</a>
+          <a href="index.html#alquilar"  class="footer-link">Alquilar</a>
+          <a href="index.html#vender"    class="footer-link">Vender</a>
+          <a href="index.html#tasacion"  class="footer-link">Tasación</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-titulo">Zonas</div>
+        <div class="footer-links">
+          <a href="index.html#zonas" class="footer-link">Mendoza Capital</a>
+          <a href="index.html#zonas" class="footer-link">Chacras de Coria</a>
+          <a href="index.html#zonas" class="footer-link">Godoy Cruz</a>
+          <a href="index.html#zonas" class="footer-link">Luján de Cuyo</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-titulo">Contacto</div>
+        <div class="footer-links">
+          <a href="index.html#contacto" class="footer-link">Formulario</a>
+          <a href="#" class="footer-link" id="footer-wsp">WhatsApp</a>
+          <a href="index.html#faq"      class="footer-link">FAQ</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Buhonegro Propiedades.</div>
+      <div class="footer-legal">
+        <a href="#">Privacidad</a>
+        <a href="#">Términos</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="js/data.js"></script>
+<script>
+// ── Lógica de ficha individual ────────────────────────────────
+
+document.addEventListener('DOMContentLoaded', () => {
+  initHeaderFicha();
+  initMenuMobileFicha();
+  cargarPropiedad();
+});
+
+function initHeaderFicha() {
+  const header = document.getElementById('header');
+  if (!header) return;
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 60);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+}
+
+function initMenuMobileFicha() {
+  const toggle = document.getElementById('menu-toggle');
+  const nav    = document.getElementById('nav-mobile');
+  const close  = document.getElementById('nav-mobile-close');
+  if (!toggle || !nav) return;
+  toggle.addEventListener('click', () => nav.classList.add('abierto'));
+  close?.addEventListener('click',  () => nav.classList.remove('abierto'));
+}
+
+function cargarPropiedad() {
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get('id');
+
+  const prop = id ? PROPIEDADES.find(p => p.id === id) : PROPIEDADES[0];
+
+  if (!prop) {
+    document.getElementById('ficha-titulo').textContent = 'Propiedad no encontrada';
+    return;
+  }
+
+  // Meta / title
+  document.title = `${prop.titulo} — Buhonegro Propiedades`;
+
+  // Breadcrumb
+  document.getElementById('breadcrumb-titulo').textContent = prop.titulo;
+
+  // Badges
+  const badges = document.getElementById('ficha-badges');
+  const op = prop.tipoOperacion === 'venta' ? 'Venta' : 'Alquiler';
+  const cls = prop.tipoOperacion === 'venta' ? 'badge-venta' : 'badge-alquiler';
+  badges.innerHTML = `<span class="card-badge ${cls}" style="position:relative;top:auto;left:auto;">${op}</span>
+    ${prop.destacado ? '<span class="card-badge badge-destacada" style="position:relative;top:auto;left:auto;">⭐ Destacada</span>' : ''}`;
+
+  // Título y ubicación
+  document.getElementById('ficha-titulo').textContent = prop.titulo;
+  document.getElementById('ficha-ubicacion-texto').textContent = `${prop.barrio}, ${prop.localidad}`;
+  document.getElementById('ficha-descripcion').textContent = prop.descripcion;
+
+  // Precio
+  const sym = prop.moneda === 'USD' ? 'USD ' : '$ ';
+  document.getElementById('ficha-precio').textContent = sym + prop.precio.toLocaleString('es-AR');
+  if (prop.expensas) {
+    document.getElementById('ficha-expensas').textContent = `+ $${prop.expensas.toLocaleString('es-AR')} expensas`;
+  }
+
+  // Galería
+  construirGaleria(prop);
+
+  // Specs grid
+  construirSpecs(prop);
+
+  // Ficha técnica
+  construirFichaTecnica(prop);
+
+  // Amenities
+  if (prop.amenities?.length) {
+    const sec = document.getElementById('seccion-amenities');
+    const lista = document.getElementById('amenities-lista');
+    sec.classList.remove('hidden');
+    prop.amenities.forEach(a => {
+      const div = document.createElement('div');
+      div.className = 'amenity-item';
+      div.innerHTML = `<span class="amenity-check">✓</span> ${a}`;
+      lista.appendChild(div);
+    });
+  }
+
+  // Asesor
+  const asesor = prop.asesorAsignado || 'Equipo Buhonegro';
+  const iniciales = asesor.split(' ').map(n => n[0]).join('').slice(0,2);
+  document.getElementById('asesor-avatar').textContent = iniciales;
+  document.getElementById('asesor-nombre').textContent = asesor;
+
+  // Campo oculto formulario
+  document.getElementById('campo-propiedad-id').value = prop.id;
+
+  // WhatsApp
+  const wspUrl = `https://wa.me/${CONFIG.whatsapp}?text=Hola%2C%20me%20interesa%20la%20propiedad%20"${encodeURIComponent(prop.titulo)}"`;
+  const btnWsp = document.getElementById('btn-wsp-ficha');
+  if (btnWsp) btnWsp.href = wspUrl;
+  const footerWsp = document.getElementById('footer-wsp');
+  if (footerWsp) footerWsp.href = wspUrl;
+
+  // Agendar visita
+  document.getElementById('btn-agendar-visita')?.addEventListener('click', () => {
+    const msg = `Hola%2C%20quiero%20agendar%20una%20visita%20para%20la%20propiedad%20"${encodeURIComponent(prop.titulo)}"`;
+    window.open(`https://wa.me/${CONFIG.whatsapp}?text=${msg}`, '_blank');
+  });
+
+  // Formulario
+  document.getElementById('form-ficha')?.addEventListener('submit', async e => {
+    e.preventDefault();
+    const form = e.target;
+    const btn = form.querySelector('button[type="submit"]');
+    const original = btn.textContent;
+    btn.textContent = 'Enviando…'; btn.disabled = true;
+
+    const data = Object.fromEntries(new FormData(form));
+    const lead = {
+      ...data,
+      tipoConsulta: 'ficha',
+      canalOrigen: 'ficha',
+      propiedadConsultada: prop.id,
+      fechaConsulta: new Date().toISOString(),
+    };
+
+    try {
+      if (CONFIG.webhook && CONFIG.webhook !== 'https://tu-webhook-aqui.com/leads') {
+        await fetch(CONFIG.webhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(lead) });
+      }
+      const leads = JSON.parse(localStorage.getItem('buhonegro_leads') || '[]');
+      leads.push(lead);
+      localStorage.setItem('buhonegro_leads', JSON.stringify(leads));
+      form.reset();
+      mostrarToastFicha('✅ Consulta enviada. Te respondemos pronto.', 'exito');
+    } catch {
+      mostrarToastFicha('Hubo un error. Contactanos por WhatsApp.', 'error');
+    } finally {
+      btn.textContent = original; btn.disabled = false;
+    }
+  });
+
+  // Similares
+  construirSimilares(prop);
+}
+
+function construirGaleria(prop) {
+  const imgs = prop.imagenes?.length ? prop.imagenes : ['https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80'];
+  const principal = document.getElementById('galeria-img-principal');
+  const thumbs = document.getElementById('galeria-thumbs');
+  const contador = document.getElementById('galeria-contador');
+  let actual = 0;
+
+  function setImagen(i) {
+    actual = i;
+    principal.src = imgs[i];
+    contador.textContent = `${i + 1} / ${imgs.length}`;
+    thumbs.querySelectorAll('.galeria-thumb').forEach((t, j) => t.classList.toggle('activa', j === i));
+  }
+
+  principal.src = imgs[0];
+  contador.textContent = `1 / ${imgs.length}`;
+  principal.parentElement.addEventListener('click', () => setImagen((actual + 1) % imgs.length));
+
+  imgs.forEach((src, i) => {
+    const div = document.createElement('div');
+    div.className = `galeria-thumb${i === 0 ? ' activa' : ''}`;
+    div.innerHTML = `<img src="${src}" alt="Foto ${i+1}" loading="lazy" />`;
+    div.addEventListener('click', () => setImagen(i));
+    thumbs.appendChild(div);
+  });
+}
+
+function construirSpecs(prop) {
+  const grid = document.getElementById('specs-grid');
+  const specs = [
+    { icono: '📐', valor: prop.superficieCubierta ? `${prop.superficieCubierta} m²` : '—', label: 'Sup. cubierta' },
+    { icono: '🌿', valor: prop.superficieTotal ? `${prop.superficieTotal} m²` : '—', label: 'Sup. total' },
+    { icono: '🛏', valor: prop.dormitorios || '—', label: 'Dormitorios' },
+    { icono: '🚿', valor: prop.banos || '—', label: 'Baños' },
+    { icono: '🚗', valor: prop.cocheras || '—', label: 'Cocheras' },
+    { icono: '🏠', valor: prop.ambientes || '—', label: 'Ambientes' },
+  ];
+  specs.forEach(s => {
+    const card = document.createElement('div');
+    card.className = 'spec-card';
+    card.innerHTML = `<div class="spec-card-icono">${s.icono}</div><div class="spec-card-valor">${s.valor}</div><div class="spec-card-label">${s.label}</div>`;
+    grid.appendChild(card);
+  });
+}
+
+function construirFichaTecnica(prop) {
+  const items = [
+    ['Operación', prop.tipoOperacion === 'venta' ? 'Venta' : 'Alquiler'],
+    ['Tipo', prop.tipoPropiedad],
+    ['Localidad', prop.localidad],
+    ['Barrio', prop.barrio],
+    ['Ambientes', prop.ambientes || '—'],
+    ['Dormitorios', prop.dormitorios || '—'],
+    ['Baños', prop.banos || '—'],
+    ['Cocheras', prop.cocheras || '—'],
+    ['Sup. cubierta', prop.superficieCubierta ? `${prop.superficieCubierta} m²` : '—'],
+    ['Sup. total', prop.superficieTotal ? `${prop.superficieTotal} m²` : '—'],
+    ['Moneda', prop.moneda || '—'],
+    ['Expensas', prop.expensas ? `$${prop.expensas.toLocaleString('es-AR')}` : 'Sin expensas'],
+    ['Estado', prop.disponible ? 'Disponible' : 'No disponible'],
+    ['Asesor asignado', prop.asesorAsignado || '—'],
+  ];
+
+  const cont = document.getElementById('ficha-tecnica');
+  const col1 = document.createElement('div');
+  const col2 = document.createElement('div');
+
+  items.forEach((item, i) => {
+    const fila = document.createElement('div');
+    fila.className = 'ficha-fila';
+    fila.innerHTML = `<span class="ficha-fila-label">${item[0]}</span><span class="ficha-fila-valor">${item[1]}</span>`;
+    (i % 2 === 0 ? col1 : col2).appendChild(fila);
+  });
+
+  cont.appendChild(col1);
+  cont.appendChild(col2);
+}
+
+function construirSimilares(prop) {
+  const grid = document.getElementById('similares-grid');
+  if (!grid) return;
+  const similares = PROPIEDADES.filter(p => p.id !== prop.id && p.tipoOperacion === prop.tipoOperacion && p.disponible).slice(0, 3);
+  similares.forEach(p => {
+    const img = p.imagenes[0] || '';
+    const sym = p.moneda === 'USD' ? 'USD ' : '$ ';
+    const card = document.createElement('article');
+    card.className = 'card-propiedad';
+    card.innerHTML = `
+      <div class="card-imagen" style="aspect-ratio:4/3;">
+        <img src="${img}" alt="${p.titulo}" loading="lazy" />
+        <span class="card-badge ${p.tipoOperacion === 'venta' ? 'badge-venta' : 'badge-alquiler'}">${p.tipoOperacion === 'venta' ? 'Venta' : 'Alquiler'}</span>
+      </div>
+      <div class="card-body">
+        <div class="card-precio">${sym}${p.precio.toLocaleString('es-AR')}</div>
+        <h3 class="card-titulo">${p.titulo}</h3>
+        <div class="card-ubicacion">${p.barrio}, ${p.localidad}</div>
+        <div class="card-actions" style="margin-top:14px;">
+          <a href="${p.linkDetalle}" class="btn btn-primario btn-sm">Ver propiedad</a>
+        </div>
+      </div>`;
+    grid.appendChild(card);
+  });
+}
+
+function mostrarToastFicha(msg, tipo) {
+  const t = document.getElementById('toast');
+  if (!t) return;
+  t.textContent = msg;
+  t.className = `toast ${tipo} visible`;
+  setTimeout(() => t.classList.remove('visible'), 4000);
+}
+</script>
+</body>
+</html>

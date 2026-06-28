@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buhonegro Propiedades — Más simple. Más inteligente. Más tuyo.</title>
+  <meta name="description" content="Compra, venta, alquiler y tasación de propiedades en Mendoza. Asesoramiento profesional, propiedades verificadas y atención personalizada." />
+  <meta name="keywords" content="inmobiliaria mendoza, propiedades mendoza, alquiler mendoza, venta casas mendoza, tasación inmuebles" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header id="header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="logo">Buhonegro<span>.</span></a>
+
+      <nav id="nav-desktop">
+        <a href="#inicio"      class="nav-link">Inicio</a>
+        <a href="#propiedades" class="nav-link">Propiedades</a>
+        <a href="#comprar"     class="nav-link">Comprar</a>
+        <a href="#alquilar"    class="nav-link">Alquilar</a>
+        <a href="#vender"      class="nav-link">Vender</a>
+        <a href="#tasacion"    class="nav-link">Tasar</a>
+        <a href="#servicios"   class="nav-link">Servicios</a>
+        <a href="#nosotros"    class="nav-link">Nosotros</a>
+        <a href="#contacto"    class="nav-link">Contacto</a>
+      </nav>
+
+      <div class="header-ctas">
+        <a href="#tasacion" class="btn-header-secundario">Solicitar tasación</a>
+        <a href="#contacto" class="btn-header-primario">Agendar asesoramiento</a>
+      </div>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile nav -->
+<div class="nav-mobile" id="nav-mobile">
+  <span class="nav-mobile-close" id="nav-mobile-close">✕</span>
+  <a href="#inicio"      class="nav-link">Inicio</a>
+  <a href="#propiedades" class="nav-link">Propiedades</a>
+  <a href="#comprar"     class="nav-link">Comprar</a>
+  <a href="#alquilar"    class="nav-link">Alquilar</a>
+  <a href="#vender"      class="nav-link">Vender</a>
+  <a href="#tasacion"    class="nav-link">Tasar</a>
+  <a href="#servicios"   class="nav-link">Servicios</a>
+  <a href="#nosotros"    class="nav-link">Nosotros</a>
+  <a href="#contacto"    class="nav-link">Contacto</a>
+  <div style="margin-top:32px;display:flex;flex-direction:column;gap:12px;">
+    <a href="#tasacion" class="btn btn-borde-blanco">Solicitar tasación</a>
+    <a href="#contacto" class="btn btn-dorado">Agendar asesoramiento</a>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section id="inicio" style="position:relative;">
+  <div id="hero">
+    <div class="hero-bg" id="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="container" style="position:relative;z-index:2;width:100%;padding-top:120px;padding-bottom:160px;">
+      <div class="hero-contenido">
+        <div class="hero-eyebrow">
+          <div class="hero-eyebrow-linea"></div>
+          <span class="eyebrow" style="color:var(--dorado-claro);">Inmobiliaria premium · Mendoza</span>
+        </div>
+        <h1 class="hero-titulo">
+          Encontrá la propiedad ideal con una experiencia <em>más simple,</em> inteligente y personalizada
+        </h1>
+        <p class="hero-subtitulo">
+          Compra, venta, alquiler y tasación de propiedades con asesoramiento profesional, datos claros y seguimiento en cada etapa.
+        </p>
+        <div class="hero-ctas">
+          <a href="#propiedades" class="btn btn-primario btn-lg" style="background:var(--blanco);color:var(--negro);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            Buscar propiedades
+          </a>
+          <a href="#vender" class="btn btn-borde-blanco btn-lg">Quiero vender mi propiedad</a>
+        </div>
+        <div class="hero-trust">
+          <span class="trust-item"><span class="trust-dot"></span>Asesoramiento personalizado</span>
+          <span class="trust-item"><span class="trust-dot"></span>Propiedades verificadas</span>
+          <span class="trust-item"><span class="trust-dot"></span>Atención rápida</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Buscador flotante -->
+    <div class="hero-buscador">
+      <div class="container">
+        <form class="buscador-box" id="form-buscador-hero">
+          <div class="campo-grupo">
+            <label>Operación</label>
+            <select name="operacion" id="h-operacion">
+              <option value="">Comprar o Alquilar</option>
+              <option value="venta">Comprar</option>
+              <option value="alquiler">Alquilar</option>
+            </select>
+          </div>
+          <div class="campo-grupo">
+            <label>Tipo de propiedad</label>
+            <select name="tipo" id="h-tipo">
+              <option value="">Todos los tipos</option>
+              <option value="casa">Casa</option>
+              <option value="departamento">Departamento</option>
+              <option value="local">Local</option>
+              <option value="terreno">Terreno</option>
+              <option value="oficina">Oficina</option>
+            </select>
+          </div>
+          <div class="campo-grupo">
+            <label>Zona / Barrio</label>
+            <input type="text" name="zona" id="h-zona" placeholder="Ej: Chacras, Godoy Cruz…" />
+          </div>
+          <div class="campo-grupo">
+            <label>Precio máximo</label>
+            <input type="text" name="precio" id="h-precio" placeholder="Ej: USD 150.000" />
+          </div>
+          <button type="submit" class="btn btn-dorado btn-lg" style="align-self:end;">
+            Buscar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PROPIEDADES DESTACADAS
+     ============================================================ -->
+<section id="destacadas" class="seccion" style="padding-top:140px;">
+  <div class="container">
+    <div class="seccion-header flex-between">
+      <div>
+        <p class="eyebrow">Selección editorial</p>
+        <h2 class="titulo-lg" style="margin-top:8px;">Propiedades destacadas</h2>
+        <p class="bajada" style="margin-top:12px;">Seleccionadas por nuestro equipo para quienes buscan ubicación, valor y oportunidad.</p>
+      </div>
+      <a href="#propiedades" class="btn btn-borde" style="flex-shrink:0;">Ver todas las propiedades →</a>
+    </div>
+    <div class="cards-grid" id="grid-destacadas"></div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     BUSCADOR AVANZADO / PROPIEDADES
+     ============================================================ -->
+<section id="propiedades" class="seccion seccion-beige">
+  <div class="container">
+    <div class="seccion-header text-center">
+      <p class="eyebrow">Encontrá lo que buscás</p>
+      <h2 class="titulo-lg" style="margin-top:8px;">Todas las propiedades</h2>
+    </div>
+
+    <!-- Filtros -->
+    <div class="filtros-panel">
+      <form id="form-filtros">
+        <div class="filtros-fila">
+          <div class="campo-grupo">
+            <label>Operación</label>
+            <select id="f-operacion">
+              <option value="">Todas</option>
+              <option value="venta">Venta</option>
+              <option value="alquiler">Alquiler</option>
+            </select>
+          </div>
+          <div class="campo-grupo">
+            <label>Tipo de inmueble</label>
+            <select id="f-tipo">
+              <option value="">Todos</option>
+              <option value="casa">Casa</option>
+              <option value="departamento">Departamento</option>
+              <option value="local">Local comercial</option>
+              <option value="terreno">Terreno</option>
+              <option value="oficina">Oficina</option>
+              <option value="galpon">Galpón</option>
+            </select>
+          </div>
+          <div class="campo-grupo">
+            <label>Localidad</label>
+            <input type="text" id="f-zona" placeholder="Localidad o barrio…" />
+          </div>
+          <div class="campo-grupo">
+            <label>Dormitorios</label>
+            <select id="f-dormitorios">
+              <option value="">Todos</option>
+              <option value="1">1 dormitorio</option>
+              <option value="2">2 dormitorios</option>
+              <option value="3">3 dormitorios</option>
+              <option value="4">4+ dormitorios</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primario">Filtrar</button>
+        </div>
+        <div class="filtros-fila">
+          <div class="campo-grupo">
+            <label>Precio mínimo</label>
+            <input type="number" id="f-precio-min" placeholder="0" />
+          </div>
+          <div class="campo-grupo">
+            <label>Precio máximo</label>
+            <input type="number" id="f-precio-max" placeholder="Sin límite" />
+          </div>
+          <div class="campo-grupo">
+            <label>Moneda</label>
+            <select id="f-moneda">
+              <option value="">Todas</option>
+              <option value="USD">USD</option>
+              <option value="ARS">ARS</option>
+            </select>
+          </div>
+          <div class="campo-grupo">
+            <label>Cochera</label>
+            <select id="f-cochera">
+              <option value="">Indistinto</option>
+              <option value="si">Con cochera</option>
+            </select>
+          </div>
+          <div class="campo-grupo">
+            <label>Ordenar por</label>
+            <select id="f-orden">
+              <option value="destacado">Destacados primero</option>
+              <option value="precio-asc">Menor precio</option>
+              <option value="precio-desc">Mayor precio</option>
+            </select>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="filtros-resultado-header">
+      <p class="resultado-count">Mostrando <strong id="resultado-count">0</strong> propiedades</p>
+      <button class="btn btn-ghost" id="btn-limpiar-filtros">Limpiar filtros ✕</button>
+    </div>
+
+    <div class="cards-grid" id="grid-propiedades"></div>
+    <div id="no-resultados" class="hidden text-center" style="padding:64px 0;">
+      <p style="font-size:1.1rem;color:var(--gris-medio);">No encontramos propiedades con esos filtros.</p>
+      <p style="margin-top:8px;font-size:.9rem;color:var(--gris-claro);">Intentá con otros criterios o contactanos directamente.</p>
+      <a href="#contacto" class="btn btn-primario mt-24">Consultar a un asesor</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SCROLL TOUR — RECORRIDO VISUAL POR UNA PROPIEDAD
+     ============================================================ -->
+<section id="scroll-tour">
+  <div class="tour-wrapper">
+
+    <!-- Panel imagen fija -->
+    <div class="tour-imagen-panel">
+      <img class="tour-img activa" data-room="0"
+        src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1200&q=85"
+        alt="Fachada exterior" loading="lazy" />
+      <img class="tour-img" data-room="1"
+        src="https://images.unsplash.com/photo-1600210492493-0946911123ea?w=1200&q=85"
+        alt="Entrada" loading="lazy" />
+      <img class="tour-img" data-room="2"
+        src="https://images.unsplash.com/photo-1556020685-ae41abfc9365?w=1200&q=85"
+        alt="Living" loading="lazy" />
+      <img class="tour-img" data-room="3"
+        src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=85"
+        alt="Cocina" loading="lazy" />
+      <img class="tour-img" data-room="4"
+        src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=1200&q=85"
+        alt="Dormitorio" loading="lazy" />
+      <img class="tour-img" data-room="5"
+        src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1200&q=85"
+        alt="Baño" loading="lazy" />
+      <img class="tour-img" data-room="6"
+        src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=85"
+        alt="Jardín" loading="lazy" />
+      <div class="tour-overlay-degradado"></div>
+    </div>
+
+    <!-- Secciones de texto -->
+    <div class="tour-secciones">
+
+      <div class="tour-seccion" data-room="0">
+        <div>
+          <div class="tour-numero">01 · Exterior</div>
+          <h2 class="tour-cita">Todo empieza con una primera impresión.</h2>
+          <p class="tour-descripcion">Fachada de diseño contemporáneo, jardín front con vegetación y acceso a cochera doble. La arquitectura habla antes que las palabras.</p>
+        </div>
+      </div>
+
+      <div class="tour-seccion" data-room="1">
+        <div>
+          <div class="tour-numero">02 · Entrada</div>
+          <h2 class="tour-cita">Espacios pensados para recibir.</h2>
+          <p class="tour-descripcion">Hall de acceso amplio con cielorrasos altos, pisos de porcelanato y luz natural. El primer espacio que define el tono de toda la casa.</p>
+        </div>
+      </div>
+
+      <div class="tour-seccion" data-room="2">
+        <div>
+          <div class="tour-numero">03 · Living</div>
+          <h2 class="tour-cita">Ambientes que conectan comodidad y estilo.</h2>
+          <p class="tour-descripcion">Living-comedor integrado con grandes ventanales, carpintería de aluminio y acceso directo al jardín. Luz y amplitud en cada metro.</p>
+        </div>
+      </div>
+
+      <div class="tour-seccion" data-room="3">
+        <div>
+          <div class="tour-numero">04 · Cocina</div>
+          <h2 class="tour-cita">Diseño funcional para la vida diaria.</h2>
+          <p class="tour-descripcion">Cocina equipada con isla central, encimera de cuarzo, backsplash de azulejo artesanal y espacios de guardado inteligentes.</p>
+        </div>
+      </div>
+
+      <div class="tour-seccion" data-room="4">
+        <div>
+          <div class="tour-numero">05 · Dormitorio</div>
+          <h2 class="tour-cita">Privacidad, descanso y calidez.</h2>
+          <p class="tour-descripcion">Dormitorio principal en suite con walking closet, orientación norte y vista al jardín. El refugio que tu día a día necesita.</p>
+        </div>
+      </div>
+
+      <div class="tour-seccion" data-room="5">
+        <div>
+          <div class="tour-numero">06 · Baño</div>
+          <h2 class="tour-cita">Detalles que elevan la experiencia.</h2>
+          <p class="tour-descripcion">Baño principal con ducha rain shower, bañera de inmersión, revestimientos premium y vanitory doble. El spa en tu hogar.</p>
+        </div>
+      </div>
+
+      <div class="tour-seccion" data-room="6">
+        <div>
+          <div class="tour-numero">07 · Jardín</div>
+          <h2 class="tour-cita">Un lugar para disfrutar cada momento.</h2>
+          <p class="tour-descripcion">Jardín con pileta climatizada, quincho con parrilla de ladrillo y sector de lounge. El espacio exterior que completa la propuesta de vida.</p>
+        </div>
+      </div>
+
+      <!-- Final del tour -->
+      <div class="tour-seccion tour-final" data-room="6" id="tour-cierre">
+        <div style="width:100%;">
+          <p class="eyebrow" style="text-align:center;margin-bottom:16px;">Fin del recorrido</p>
+          <h2 class="titulo-lg" style="color:var(--blanco);text-align:center;margin-bottom:16px;">
+            Conocé propiedades que se adapten a tu forma de vivir.
+          </h2>
+          <p class="bajada bajada-centro" style="color:rgba(255,255,255,.7);margin-bottom:36px;">
+            Cada propiedad tiene una historia. Nosotros te ayudamos a encontrar la tuya.
+          </p>
+          <div class="tour-final-ctas">
+            <a href="#propiedades" class="btn btn-primario btn-lg" style="background:var(--blanco);color:var(--negro);">Ver propiedades disponibles</a>
+            <a id="btn-wsp-tour" href="#" class="btn btn-wsp btn-lg">💬 Agendar visita</a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.tour-secciones -->
+  </div><!-- /.tour-wrapper -->
+</section>
+
+
+<!-- ============================================================
+     COMPRAR
+     ============================================================ -->
+<section id="comprar" class="seccion seccion-beige">
+  <div class="container">
+    <div class="seccion-header text-center">
+      <p class="eyebrow">Proceso de compra</p>
+      <h2 class="titulo-lg" style="margin-top:8px;">¿Querés comprar una propiedad?</h2>
+      <p class="bajada bajada-centro" style="margin-top:14px;">Te acompañamos desde la búsqueda hasta la escritura. Sin complicaciones.</p>
+    </div>
+
+    <div class="proceso-grid fade-up">
+      <div class="proceso-paso">
+        <div class="proceso-numero">1</div>
+        <div class="proceso-titulo">Entendemos lo que buscás</div>
+        <p class="proceso-desc">Nos reunimos para conocer tus necesidades, zona, presupuesto y plazos.</p>
+      </div>
+      <div class="proceso-paso">
+        <div class="proceso-numero">2</div>
+        <div class="proceso-titulo">Selección personalizada</div>
+        <p class="proceso-desc">Filtramos propiedades que realmente se adaptan a tus criterios.</p>
+      </div>
+      <div class="proceso-paso">
+        <div class="proceso-numero">3</div>
+        <div class="proceso-titulo">Coordinamos visitas</div>
+        <p class="proceso-desc">Organizamos los recorridos según tu disponibilidad y acompañamos en cada uno.</p>
+      </div>
+      <div class="proceso-paso">
+        <div class="proceso-numero">4</div>
+        <div class="proceso-titulo">Acompañamos la negociación</div>
+        <p class="proceso-desc">Asesoramos en la oferta y negociación para que tomes la mejor decisión.</p>
+      </div>
+      <div class="proceso-paso">
+        <div class="proceso-numero">5</div>
+        <div class="proceso-titulo">Cierre de la operación</div>
+        <p class="proceso-desc">Te guiamos en la documentación, gestión notarial y hasta la firma final.</p>
+      </div>
+    </div>
+
+    <div class="text-center mt-48">
+      <a href="#contacto" class="btn btn-primario btn-lg">Quiero comprar →</a>
+      <a href="#contacto" class="btn btn-ghost btn-lg" style="margin-left:16px;">Hablar con un asesor</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     ALQUILAR
+     ============================================================ -->
+<section id="alquilar" class="seccion">
+  <div class="container">
+    <div class="alquiler-grid">
+      <div>
+        <p class="eyebrow">Para inquilinos</p>
+        <h2 class="titulo-lg" style="margin-top:8px;">Alquilar es fácil con el asesor correcto</h2>
+        <p class="bajada" style="margin-top:14px;">Requisitos claros, propiedades disponibles y seguimiento hasta que estés instalado.</p>
+
+        <div class="pasos-lista mt-32 fade-up">
+          <div class="paso-item">
+            <div class="paso-icono">1</div>
+            <div class="paso-texto">
+              <div class="paso-tit">Búsqueda personalizada</div>
+              <p>Entendemos tu zona, presupuesto y necesidades antes de mostrarte opciones.</p>
+            </div>
+          </div>
+          <div class="paso-item">
+            <div class="paso-icono">2</div>
+            <div class="paso-texto">
+              <div class="paso-tit">Requisitos claros desde el inicio</div>
+              <p>Te explicamos todo lo que necesitás: garantías, ingresos y documentación.</p>
+            </div>
+          </div>
+          <div class="paso-item">
+            <div class="paso-icono">3</div>
+            <div class="paso-texto">
+              <div class="paso-tit">Visitas coordinadas</div>
+              <p>Organizamos las visitas según tu disponibilidad.</p>
+            </div>
+          </div>
+          <div class="paso-item">
+            <div class="paso-icono">4</div>
+            <div class="paso-texto">
+              <div class="paso-tit">Asistencia hasta la firma</div>
+              <p>Te acompañamos en la lectura y firma del contrato sin letra chica.</p>
+            </div>
+          </div>
+          <div class="paso-item">
+            <div class="paso-icono">5</div>
+            <div class="paso-texto">
+              <div class="paso-tit">Ingreso sin sorpresas</div>
+              <p>Acta de estado del inmueble y entrega de llaves con todo documentado.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulario alquiler -->
+      <div class="form-card fade-up">
+        <div class="form-titulo">Buscar alquiler</div>
+        <form id="form-alquiler" data-canal="alquiler">
+          <div class="campo">
+            <label>Tu nombre *</label>
+            <input type="text" name="nombre" required placeholder="Nombre completo" />
+          </div>
+          <div class="campo-fila">
+            <div class="campo">
+              <label>Teléfono *</label>
+              <input type="tel" name="telefono" required placeholder="+54 261…" />
+            </div>
+            <div class="campo">
+              <label>Email *</label>
+              <input type="email" name="email" required placeholder="tu@email.com" />
+            </div>
+          </div>
+          <div class="campo">
+            <label>Zona buscada</label>
+            <input type="text" name="zona" placeholder="Barrio, localidad o calle…" />
+          </div>
+          <div class="campo-fila">
+            <div class="campo">
+              <label>Presupuesto mensual</label>
+              <input type="text" name="presupuesto" placeholder="Ej: $200.000" />
+            </div>
+            <div class="campo">
+              <label>Ingreso estimado</label>
+              <input type="text" name="fecha_ingreso" placeholder="Mes / Año" />
+            </div>
+          </div>
+          <div class="campo">
+            <label>Tipo de garantía disponible</label>
+            <select name="garantia">
+              <option value="">Seleccioná</option>
+              <option value="propietario">Garante propietario</option>
+              <option value="seguro">Seguro de caución</option>
+              <option value="recibo">Recibos de sueldo</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label>¿Tenés mascotas?</label>
+            <div class="radio-grupo">
+              <label class="radio-opcion"><input type="radio" name="mascotas" value="no" checked /> No</label>
+              <label class="radio-opcion"><input type="radio" name="mascotas" value="si" /> Sí</label>
+            </div>
+          </div>
+          <div class="campo">
+            <label>Mensaje / Aclaraciones</label>
+            <textarea name="mensaje" placeholder="Contanos más sobre lo que buscás…"></textarea>
+          </div>
+          <button type="submit" class="btn btn-dorado" style="width:100%;justify-content:center;">Buscar alquiler →</button>
+          <p class="form-footer">Un asesor se contactará dentro de las 24hs hábiles.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     VENDER
+     ============================================================ -->
+<section id="vender" class="seccion seccion-beige">
+  <div class="container">
+    <div class="vender-grid">
+      <div class="fade-up">
+        <p class="eyebrow">Para propietarios</p>
+        <h2 class="titulo-lg" style="margin-top:8px;">Vendé tu propiedad con una estrategia clara y acompañamiento real</h2>
+        <p class="bajada" style="margin-top:14px;">Tasación profesional, publicación optimizada y gestión completa hasta el cierre.</p>
+
+        <div class="servicios-lista mt-32">
+          <div class="servicio-item">
+            <span class="servicio-icono">📊</span>
+            <div class="servicio-texto">
+              <div class="tit">Tasación profesional del mercado</div>
+              <p>Valuación basada en operaciones reales y datos actualizados de la zona.</p>
+            </div>
+          </div>
+          <div class="servicio-item">
+            <span class="servicio-icono">📷</span>
+            <div class="servicio-texto">
+              <div class="tit">Fotografía y presentación comercial</div>
+              <p>Imágenes profesionales y descripción optimizada para captar más interesados.</p>
+            </div>
+          </div>
+          <div class="servicio-item">
+            <span class="servicio-icono">📡</span>
+            <div class="servicio-texto">
+              <div class="tit">Difusión multicanal</div>
+              <p>Portales, redes sociales y base activa de compradores en búsqueda.</p>
+            </div>
+          </div>
+          <div class="servicio-item">
+            <span class="servicio-icono">🤝</span>
+            <div class="servicio-texto">
+              <div class="tit">Gestión de consultas y negociación</div>
+              <p>Filtramos interesados calificados y acompañamos la negociación final.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:12px;margin-top:32px;flex-wrap:wrap;">
+          <a href="#tasacion" class="btn btn-primario">Solicitar tasación gratuita</a>
+          <a href="#contacto" class="btn btn-borde">Hablar con un asesor</a>
+        </div>
+      </div>
+
+      <div class="vender-imagen fade-up">
+        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80" alt="Venta de propiedad" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     TASACIÓN
+     ============================================================ -->
+<section id="tasacion" class="seccion">
+  <div class="container">
+    <div class="tasacion-grid">
+      <div class="tasacion-info fade-up">
+        <p class="eyebrow">Valuación profesional</p>
+        <h2 class="titulo-lg" style="margin-top:8px;">¿Cuánto vale tu propiedad hoy?</h2>
+        <p class="bajada" style="margin-top:14px;">Conocé el valor estimado de tu inmueble y recibí una recomendación comercial basada en datos reales del mercado.</p>
+        <div class="tasacion-destacado">
+          <p>✅ <strong>Gratuita</strong> — Sin costo ni compromiso.<br/>
+          📅 <strong>Rápida</strong> — Respuesta en 48hs hábiles.<br/>
+          🎯 <strong>Precisa</strong> — Basada en operaciones reales de la zona.<br/>
+          👤 <strong>Personalizada</strong> — Un asesor te explica cada dato.</p>
+        </div>
+      </div>
+
+      <!-- Formulario tasación -->
+      <div class="form-card fade-up" id="form-tasacion-card">
+        <div class="form-titulo">Solicitar tasación gratuita</div>
+        <form id="form-tasacion" data-canal="tasacion">
+          <div class="campo">
+            <label>Nombre completo *</label>
+            <input type="text" name="nombre" required placeholder="Tu nombre" />
+          </div>
+          <div class="campo-fila">
+            <div class="campo">
+              <label>Teléfono *</label>
+              <input type="tel" name="telefono" required placeholder="+54 261…" />
+            </div>
+            <div class="campo">
+              <label>Email *</label>
+              <input type="email" name="email" required placeholder="tu@email.com" />
+            </div>
+          </div>
+          <div class="campo">
+            <label>Tipo de propiedad *</label>
+            <select name="tipoPropiedad" required>
+              <option value="">Seleccioná</option>
+              <option value="casa">Casa</option>
+              <option value="departamento">Departamento</option>
+              <option value="local">Local comercial</option>
+              <option value="terreno">Terreno</option>
+              <option value="oficina">Oficina</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label>Dirección o zona aproximada *</label>
+            <input type="text" name="zona" required placeholder="Barrio, calle, localidad…" />
+          </div>
+          <div class="campo-fila">
+            <div class="campo">
+              <label>Superficie aprox. (m²)</label>
+              <input type="number" name="superficie" placeholder="Ej: 120" />
+            </div>
+            <div class="campo">
+              <label>Estado general</label>
+              <select name="estado">
+                <option value="">Seleccioná</option>
+                <option value="excelente">Excelente</option>
+                <option value="bueno">Bueno</option>
+                <option value="regular">Regular / A refaccionar</option>
+              </select>
+            </div>
+          </div>
+          <div class="campo">
+            <label>¿Objetivo?</label>
+            <select name="objetivo">
+              <option value="vender">Quiero vender</option>
+              <option value="conocer">Solo quiero conocer el valor</option>
+              <option value="alquilar">Quiero alquilar</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label>Comentarios adicionales</label>
+            <textarea name="mensaje" placeholder="Añadí cualquier detalle relevante…"></textarea>
+          </div>
+          <button type="submit" class="btn btn-dorado" style="width:100%;justify-content:center;">Solicitar tasación gratuita →</button>
+          <p class="form-footer">Un asesor se comunicará en 48hs hábiles para confirmar la tasación.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SERVICIOS
+     ============================================================ -->
+<section id="servicios" class="seccion seccion-beige">
+  <div class="container">
+    <div class="seccion-header text-center">
+      <p class="eyebrow">Lo que hacemos</p>
+      <h2 class="titulo-lg" style="margin-top:8px;">Servicios inmobiliarios completos</h2>
+    </div>
+    <div class="servicios-grid fade-up">
+      <div class="servicio-card">
+        <div class="servicio-card-icono">🏠</div>
+        <div class="servicio-card-titulo">Compra de propiedades</div>
+        <div class="servicio-card-desc">Búsqueda personalizada, visitas y acompañamiento hasta la escritura.</div>
+        <a href="#comprar" class="servicio-card-cta">Saber más →</a>
+      </div>
+      <div class="servicio-card">
+        <div class="servicio-card-icono">🔑</div>
+        <div class="servicio-card-titulo">Venta de propiedades</div>
+        <div class="servicio-card-desc">Tasación, publicación optimizada y gestión completa de la operación.</div>
+        <a href="#vender" class="servicio-card-cta">Saber más →</a>
+      </div>
+      <div class="servicio-card">
+        <div class="servicio-card-icono">📋</div>
+        <div class="servicio-card-titulo">Alquileres</div>
+        <div class="servicio-card-desc">Propiedades disponibles, coordinación de visitas y asistencia hasta la firma.</div>
+        <a href="#alquilar" class="servicio-card-cta">Saber más →</a>
+      </div>
+      <div class="servicio-card">
+        <div class="servicio-card-icono">📊</div>
+        <div class="servicio-card-titulo">Tasaciones</div>
+        <div class="servicio-card-desc">Valuación profesional basada en datos reales del mercado local.</div>
+        <a href="#tasacion" class="servicio-card-cta">Solicitar →</a>
+      </div>
+      <div class="servicio-card">
+        <div class="servicio-card-icono">🏢</div>
+        <div class="servicio-card-titulo">Administración de alquileres</div>
+        <div class="servicio-card-desc">Gestión mensual completa: cobros, rendiciones y mantenimiento.</div>
+        <a href="#contacto" class="servicio-card-cta">Consultar →</a>
+      </div>
+      <div class="servicio-card">
+        <div class="servicio-card-icono">📈</div>
+        <div class="servicio-card-titulo">Inversiones inmobiliarias</div>
+        <div class="servicio-card-desc">Asesoramiento para invertir en el mercado local con datos reales.</div>
+        <a href="#contacto" class="servicio-card-cta">Consultar →</a>
+      </div>
+      <div class="servicio-card">
+        <div class="servicio-card-icono">🏗️</div>
+        <div class="servicio-card-titulo">Desarrollos y proyectos</div>
+        <div class="servicio-card-desc">Asesoramiento para desarrolladores y constructores.</div>
+        <a href="#contacto" class="servicio-card-cta">Consultar →</a>
+      </div>
+      <div class="servicio-card">
+        <div class="servicio-card-icono">📄</div>
+        <div class="servicio-card-titulo">Gestión documental</div>
+        <div class="servicio-card-desc">Acompañamiento en trámites notariales, escrituras y contratos.</div>
+        <a href="#contacto" class="servicio-card-cta">Consultar →</a>
+      </div>
+      <div class="servicio-card">
+        <div class="servicio-card-icono">📣</div>
+        <div class="servicio-card-titulo">Marketing inmobiliario</div>
+        <div class="servicio-card-desc">Fotografía, publicación y difusión multicanal de tu propiedad.</div>
+        <a href="#vender" class="servicio-card-cta">Saber más →</a>
+      </div>
+      <div class="servicio-card">
+        <div class="servicio-card-icono">🤖</div>
+        <div class="servicio-card-titulo">Asistencia con IA</div>
+        <div class="servicio-card-desc">Consultas rápidas, precalificación y recomendaciones automatizadas.</div>
+        <a href="#agente-ia" class="servicio-card-cta">Conocer más →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     POR QUÉ ELEGIRNOS
+     ============================================================ -->
+<section id="nosotros" class="seccion seccion-negro">
+  <div class="container">
+    <div class="seccion-header text-center">
+      <p class="eyebrow" style="color:var(--dorado);">Por qué elegirnos</p>
+      <h2 class="titulo-lg" style="margin-top:8px;color:var(--blanco);">Una inmobiliaria distinta</h2>
+      <p class="bajada bajada-centro" style="color:rgba(255,255,255,.65);margin-top:14px;">Profesionalismo real, tecnología aplicada y atención humana en cada etapa.</p>
+    </div>
+
+    <div class="metricas-grid fade-up">
+      <div class="metrica-item">
+        <div class="metrica-numero">+500</div>
+        <div class="metrica-label">Propiedades gestionadas</div>
+      </div>
+      <div class="metrica-item">
+        <div class="metrica-numero">+1.200</div>
+        <div class="metrica-label">Consultas respondidas</div>
+      </div>
+      <div class="metrica-item">
+        <div class="metrica-numero">+300</div>
+        <div class="metrica-label">Clientes acompañados</div>
+      </div>
+      <div class="metrica-item">
+        <div class="metrica-numero">8+</div>
+        <div class="metrica-label">Años de experiencia</div>
+      </div>
+      <div class="metrica-item">
+        <div class="metrica-numero">6</div>
+        <div class="metrica-label">Zonas de cobertura</div>
+      </div>
+    </div>
+
+    <div class="diferenciales-grid fade-up">
+      <div class="diferencial-item">
+        <div class="diferencial-icono">👤</div>
+        <div class="diferencial-titulo">Atención personalizada</div>
+        <div class="diferencial-desc">Un asesor dedicado a tu caso desde el primer contacto hasta el cierre.</div>
+      </div>
+      <div class="diferencial-item">
+        <div class="diferencial-icono">🗺️</div>
+        <div class="diferencial-titulo">Conocimiento local</div>
+        <div class="diferencial-desc">Datos reales del mercado en cada zona para que decidas con información real.</div>
+      </div>
+      <div class="diferencial-item">
+        <div class="diferencial-icono">✅</div>
+        <div class="diferencial-titulo">Propiedades verificadas</div>
+        <div class="diferencial-desc">Cada propiedad pasa por un proceso de verificación documental antes de publicarse.</div>
+      </div>
+      <div class="diferencial-item">
+        <div class="diferencial-icono">🔄</div>
+        <div class="diferencial-titulo">Seguimiento real</div>
+        <div class="diferencial-desc">Te mantenemos informado en cada etapa. Sin silencios ni demoras injustificadas.</div>
+      </div>
+      <div class="diferencial-item">
+        <div class="diferencial-icono">🤖</div>
+        <div class="diferencial-titulo">Tecnología e IA</div>
+        <div class="diferencial-desc">Herramientas digitales para acelerar búsquedas, consultas y seguimiento de tu operación.</div>
+      </div>
+      <div class="diferencial-item">
+        <div class="diferencial-icono">🔍</div>
+        <div class="diferencial-titulo">Transparencia total</div>
+        <div class="diferencial-desc">Precios reales, procesos claros y sin costos ocultos en ninguna etapa.</div>
+      </div>
+      <div class="diferencial-item">
+        <div class="diferencial-icono">💬</div>
+        <div class="diferencial-titulo">WhatsApp directo</div>
+        <div class="diferencial-desc">Comunicación rápida por WhatsApp. Sin formularios que se pierden ni llamadas que no contestan.</div>
+      </div>
+      <div class="diferencial-item">
+        <div class="diferencial-icono">🏅</div>
+        <div class="diferencial-titulo">Equipo profesional</div>
+        <div class="diferencial-desc">Asesores con formación, experiencia y compromiso con cada operación.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     AGENTE IA
+     ============================================================ -->
+<section id="agente-ia" class="seccion">
+  <div class="container">
+    <div class="ia-grid">
+      <div class="fade-up">
+        <p class="eyebrow">Tecnología aplicada</p>
+        <h2 class="titulo-lg" style="margin-top:8px;">Una experiencia inmobiliaria más ágil con asistencia inteligente</h2>
+        <p class="bajada" style="margin-top:14px;">Nuestro asistente digital ayuda a responder consultas, orientar búsquedas, ordenar interesados y acelerar la conexión con el asesor adecuado.</p>
+
+        <div class="ia-features mt-32">
+          <div class="ia-feature"><span class="ia-check">✓</span><span class="ia-feature-text">Respuestas rápidas a consultas frecuentes</span></div>
+          <div class="ia-feature"><span class="ia-check">✓</span><span class="ia-feature-text">Precalificación de interesados</span></div>
+          <div class="ia-feature"><span class="ia-check">✓</span><span class="ia-feature-text">Recomendación de propiedades</span></div>
+          <div class="ia-feature"><span class="ia-check">✓</span><span class="ia-feature-text">Solicitud de tasación</span></div>
+          <div class="ia-feature"><span class="ia-check">✓</span><span class="ia-feature-text">Coordinación de visitas</span></div>
+          <div class="ia-feature"><span class="ia-check">✓</span><span class="ia-feature-text">Seguimiento de oportunidades</span></div>
+        </div>
+
+        <div style="display:flex;gap:12px;margin-top:28px;flex-wrap:wrap;">
+          <a id="btn-wsp-ia" href="#" class="btn btn-wsp">💬 Consultar por WhatsApp</a>
+          <a href="#contacto" class="btn btn-borde">Hablar con un asesor</a>
+        </div>
+        <p class="ia-aviso">La IA acompaña la atención, pero todas las operaciones son supervisadas por asesores humanos.</p>
+      </div>
+
+      <!-- Visual chat demo -->
+      <div class="ia-visual fade-up">
+        <div class="chat-bubble">
+          <div class="chat-label">USUARIO</div>
+          Busco un departamento de 2 ambientes en Godoy Cruz, presupuesto hasta USD 80.000.
+        </div>
+        <div class="chat-bubble ia">
+          <div class="chat-label" style="color:var(--dorado);">ASISTENTE BUHONEGRO</div>
+          Encontré 3 opciones en Godoy Cruz que se ajustan a tu presupuesto. La más destacada tiene cochera, piso alto y vista despejada. ¿Querés que te envíe los detalles o coordinamos una visita?
+        </div>
+        <div class="chat-bubble">
+          <div class="chat-label">USUARIO</div>
+          Sí, mandame los detalles.
+        </div>
+        <div class="chat-bubble ia">
+          <div class="chat-label" style="color:var(--dorado);">ASISTENTE BUHONEGRO</div>
+          Perfecto. Te los envío ahora. También aviso a Martín, tu asesor asignado, para que esté disponible si tenés preguntas específicas.
+        </div>
+        <div style="margin-top:20px;padding:14px 0;border-top:1px solid rgba(255,255,255,.1);font-size:.75rem;color:rgba(255,255,255,.3);text-align:center;">
+          Disponible vía WhatsApp · Próximamente integración directa en la web
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     ZONAS
+     ============================================================ -->
+<section id="zonas" class="seccion seccion-beige">
+  <div class="container">
+    <div class="seccion-header text-center">
+      <p class="eyebrow">Dónde trabajamos</p>
+      <h2 class="titulo-lg" style="margin-top:8px;">Zonas con cobertura activa</h2>
+      <p class="bajada bajada-centro" style="margin-top:14px;">Conocemos cada barrio porque operamos en ellos todos los días.</p>
+    </div>
+    <div class="zonas-grid fade-up" id="grid-zonas"></div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     TESTIMONIOS
+     ============================================================ -->
+<section id="testimonios" class="seccion">
+  <div class="container">
+    <div class="seccion-header text-center">
+      <p class="eyebrow">Lo que dicen nuestros clientes</p>
+      <h2 class="titulo-lg" style="margin-top:8px;">Experiencias reales</h2>
+    </div>
+    <div class="testimonios-grid fade-up" id="grid-testimonios"></div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     BLOG
+     ============================================================ -->
+<section id="blog" class="seccion seccion-beige">
+  <div class="container">
+    <div class="seccion-header flex-between">
+      <div>
+        <p class="eyebrow">Recursos y consejos</p>
+        <h2 class="titulo-lg" style="margin-top:8px;">Blog inmobiliario</h2>
+      </div>
+      <a href="#blog" class="btn btn-borde" style="flex-shrink:0;">Ver todos los artículos →</a>
+    </div>
+    <div class="blog-grid">
+      <article class="blog-card">
+        <div class="blog-imagen">
+          <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=75" alt="Preparar propiedad para vender" loading="lazy" />
+        </div>
+        <div class="blog-body">
+          <div class="blog-categoria">Venta</div>
+          <h3 class="blog-titulo">Cómo preparar tu propiedad para vender mejor y más rápido</h3>
+          <p class="blog-excerpt">Pequeñas mejoras que pueden hacer la diferencia en la percepción del comprador y en el precio final de venta.</p>
+          <div class="blog-meta">5 min de lectura</div>
+        </div>
+      </article>
+      <article class="blog-card">
+        <div class="blog-imagen">
+          <img src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=600&q=75" alt="Alquilar" loading="lazy" />
+        </div>
+        <div class="blog-body">
+          <div class="blog-categoria">Alquiler</div>
+          <h3 class="blog-titulo">Qué tener en cuenta antes de firmar un contrato de alquiler</h3>
+          <p class="blog-excerpt">Garantías, cláusulas clave, expensas y todo lo que necesitás revisar antes de comprometerte.</p>
+          <div class="blog-meta">4 min de lectura</div>
+        </div>
+      </article>
+      <article class="blog-card">
+        <div class="blog-imagen">
+          <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=600&q=75" alt="Tasación" loading="lazy" />
+        </div>
+        <div class="blog-body">
+          <div class="blog-categoria">Tasación</div>
+          <h3 class="blog-titulo">Cómo saber si el precio de una propiedad es competitivo</h3>
+          <p class="blog-excerpt">Los factores que definen el valor real de un inmueble y cómo compararlo con el mercado actual.</p>
+          <div class="blog-meta">6 min de lectura</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FAQ
+     ============================================================ -->
+<section id="faq" class="seccion">
+  <div class="container" style="max-width:800px;">
+    <div class="seccion-header text-center">
+      <p class="eyebrow">Preguntas frecuentes</p>
+      <h2 class="titulo-lg" style="margin-top:8px;">¿Tenés dudas? Acá están las respuestas</h2>
+    </div>
+
+    <div class="faq-tabs">
+      <button class="faq-tab activo" data-tab="comprar">Comprar</button>
+      <button class="faq-tab" data-tab="alquilar">Alquilar</button>
+      <button class="faq-tab" data-tab="vender">Vender</button>
+      <button class="faq-tab" data-tab="tasacion-faq">Tasación</button>
+    </div>
+
+    <div class="faq-lista activa" data-tab-content="comprar">
+      <div class="faq-item">
+        <div class="faq-pregunta">¿Cómo coordino una visita a una propiedad? <span class="faq-icono">+</span></div>
+        <div class="faq-respuesta">Podés solicitarla directamente desde la ficha de la propiedad, por WhatsApp o completando el formulario de contacto. Un asesor se comunica en menos de 24hs para coordinar día y horario.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-pregunta">¿Qué gastos debo tener en cuenta al comprar? <span class="faq-icono">+</span></div>
+        <div class="faq-respuesta">Además del precio de la propiedad, hay que considerar honorarios inmobiliarios (usualmente entre el 3% y 4% del valor), gastos notariales, sellado provincial e impuesto a la transferencia. Nuestros asesores te detallan todo antes de avanzar.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-pregunta">¿Puedo hacer una oferta antes de la reserva? <span class="faq-icono">+</span></div>
+        <div class="faq-respuesta">Sí. Antes de la reserva formal podés realizar una oferta por escrito que el asesor transmite al propietario. En base a eso se negocia el precio y condiciones antes de comprometer fondos.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-pregunta">¿Trabajan con financiación bancaria? <span class="faq-icono">+</span></div>
+        <div class="faq-respuesta">Sí. Trabajamos con operaciones en efectivo y con créditos hipotecarios de distintos bancos. Nuestros asesores pueden orientarte sobre las opciones vigentes y los requisitos de cada banco.</div>
+      </div>
+    </div>
+
+    <div class="faq-lista" data-tab-content="alquilar">
+      <div class="faq-item">
+        <div class="faq-pregunta">¿Qué requisitos necesito para alquilar? <span class="faq-icono">+</span></div>
+        <div class="faq-respuesta">En general: DNI, recibos de sueldo o ingresos comprobables, y garantía propietaria o seguro de caución. Los requisitos exactos varían según el propietario. Te informamos en la primera consulta.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-pregunta">¿Aceptan mascotas en las propiedades? <span class="faq-icono">+</span></div>
+        <div class="faq-respuesta">Depende del propietario. En nuestra cartera tenemos propiedades que sí aceptan mascotas. Al consultar indicá que tenés mascotas y filtramos las opciones compatibles.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-pregunta">¿Qué tipos de garantía se aceptan? <span class="faq-icono">+</span></div>
+        <div class="faq-respuesta">Garante propietario, seguro de caución, recibos de sueldo o combinaciones. Trabajamos para encontrar una solución viable según tu situación.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-pregunta">¿Cuánto demora el proceso de alquiler? <span class="faq-icono">+</span></div>
+        <div class="faq-respuesta">Desde la primera visita hasta la firma del contrato, el proceso suele tomar entre 7 y 15 días hábiles, dependiendo de la agilidad en la presentación de documentos y la aprobación del propietario.</div>
+      </div>
+    </div>
+
+    <div class="faq-lista" data-tab-content="vender">
+      <div class="faq-item">
+        <div class="faq-pregunta">¿Cómo solicito una tasación? <span class="faq-icono">+</span></div>
+        <div class="faq-respuesta">Completá el formulario de tasación en esta misma página. En 48hs hábiles un asesor te contacta para coordinar una visita o tasación virtual y entregarte el informe.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-pregunta">¿Cuánto tarda en venderse una propiedad? <span class="faq-icono">+</span></div>
+        <div class="faq-respuesta">Depende del precio, la zona y el tipo de inmueble. Con una estrategia de precio correcta y buena presentación, el promedio en el mercado actual es de 2 a 6 meses. Propiedades bien valuadas se venden antes.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-pregunta">¿Cómo se publica mi inmueble? <span class="faq-icono">+</span></div>
+        <div class="faq-respuesta">Realizamos fotografías profesionales, redactamos la descripción comercial y publicamos en los principales portales del mercado, más nuestra base activa de interesados y redes sociales.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-pregunta">¿Qué documentación necesito para vender? <span class="faq-icono">+</span></div>
+        <div class="faq-respuesta">Título de propiedad, planos aprobados, libre deuda de expensas (si aplica), y documentación personal. Nuestros asesores te orientan en cada caso para que no falte ningún papel en el momento clave.</div>
+      </div>
+    </div>
+
+    <div class="faq-lista" data-tab-content="tasacion-faq">
+      <div class="faq-item">
+        <div class="faq-pregunta">¿La tasación tiene costo? <span class="faq-icono">+</span></div>
+        <div class="faq-respuesta">No. La tasación inicial es completamente gratuita y sin compromiso de venta. Es un servicio que ofrecemos para que puedas tomar la mejor decisión con información real.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-pregunta">¿Es presencial o virtual? <span class="faq-icono">+</span></div>
+        <div class="faq-respuesta">Ofrecemos ambas modalidades. La tasación presencial es más precisa para determinar el estado y los detalles del inmueble. La virtual es útil como primera aproximación y se realiza con fotos y datos que el propietario nos envía.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-pregunta">¿Qué datos necesito enviar? <span class="faq-icono">+</span></div>
+        <div class="faq-respuesta">Tipo de propiedad, ubicación o dirección aproximada, superficie cubierta y total, cantidad de ambientes, estado general y fotos (si es virtual). Cuanta más información, más preciso será el informe.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CONTACTO
+     ============================================================ -->
+<section id="contacto" class="seccion seccion-beige">
+  <div class="container">
+    <div class="seccion-header text-center">
+      <p class="eyebrow">Escribinos</p>
+      <h2 class="titulo-lg" style="margin-top:8px;">Estamos para ayudarte</h2>
+      <p class="bajada bajada-centro" style="margin-top:14px;">Completá el formulario o contactanos directamente. Un asesor responde dentro de las 24hs hábiles.</p>
+    </div>
+
+    <div class="contacto-grid">
+      <div class="fade-up">
+        <h3 class="titulo-md">Información de contacto</h3>
+        <div class="contacto-info-items">
+          <div class="contacto-info-item">
+            <div class="contacto-icono">📞</div>
+            <div class="contacto-texto">
+              <div class="etiqueta">Teléfono / WhatsApp</div>
+              <div class="valor" id="contacto-telefono">+54 261 000-0000</div>
+            </div>
+          </div>
+          <div class="contacto-info-item">
+            <div class="contacto-icono">✉️</div>
+            <div class="contacto-texto">
+              <div class="etiqueta">Email</div>
+              <div class="valor" id="contacto-email">info@buhonegro.com.ar</div>
+            </div>
+          </div>
+          <div class="contacto-info-item">
+            <div class="contacto-icono">📍</div>
+            <div class="contacto-texto">
+              <div class="etiqueta">Ubicación</div>
+              <div class="valor" id="contacto-direccion">Mendoza, Argentina</div>
+            </div>
+          </div>
+          <div class="contacto-info-item">
+            <div class="contacto-icono">🕐</div>
+            <div class="contacto-texto">
+              <div class="etiqueta">Horarios de atención</div>
+              <div class="valor" id="contacto-horarios">Lun–Vie 9–18hs · Sáb 9–13hs</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contacto-redes mt-32">
+          <a href="#" class="red-social" aria-label="Instagram">ig</a>
+          <a href="#" class="red-social" aria-label="Facebook">fb</a>
+          <a href="#" class="red-social" aria-label="LinkedIn">in</a>
+        </div>
+
+        <div style="margin-top:32px;">
+          <a id="btn-wsp-contacto" href="#" class="btn btn-wsp btn-lg">
+            💬 Hablar por WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- Formulario contacto -->
+      <div class="form-card fade-up">
+        <div class="form-titulo">Envianos tu consulta</div>
+        <form id="form-contacto" data-canal="contacto">
+          <div class="campo">
+            <label>Nombre completo *</label>
+            <input type="text" name="nombre" required placeholder="Tu nombre" />
+          </div>
+          <div class="campo-fila">
+            <div class="campo">
+              <label>Teléfono *</label>
+              <input type="tel" name="telefono" required placeholder="+54 261…" />
+            </div>
+            <div class="campo">
+              <label>Email *</label>
+              <input type="email" name="email" required placeholder="tu@email.com" />
+            </div>
+          </div>
+          <div class="campo">
+            <label>Motivo de consulta</label>
+            <select name="tipoConsulta">
+              <option value="general">Consulta general</option>
+              <option value="compra">Quiero comprar</option>
+              <option value="alquiler">Quiero alquilar</option>
+              <option value="venta">Quiero vender</option>
+              <option value="tasacion">Solicitar tasación</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label>Mensaje</label>
+            <textarea name="mensaje" rows="4" placeholder="Contanos en qué podemos ayudarte…"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primario" style="width:100%;justify-content:center;">Enviar consulta →</button>
+          <p class="form-footer">Respondemos dentro de las 24hs hábiles. Tu información es confidencial.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Buhonegro<span>.</span></div>
+        <p class="footer-desc">Inmobiliaria moderna orientada a resultados. Compra, venta, alquiler y tasación de propiedades con asesoramiento real y tecnología aplicada.</p>
+        <p class="footer-desc" style="margin-top:12px;font-style:italic;color:rgba(255,255,255,.3);">Más simple. Más inteligente. Más tuyo.</p>
+      </div>
+      <div>
+        <div class="footer-col-titulo">Servicios</div>
+        <div class="footer-links">
+          <a href="#comprar"   class="footer-link">Comprar</a>
+          <a href="#alquilar"  class="footer-link">Alquilar</a>
+          <a href="#vender"    class="footer-link">Vender</a>
+          <a href="#tasacion"  class="footer-link">Tasación</a>
+          <a href="#servicios" class="footer-link">Todos los servicios</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-titulo">Zonas</div>
+        <div class="footer-links">
+          <a href="#zonas" class="footer-link">Mendoza Capital</a>
+          <a href="#zonas" class="footer-link">Chacras de Coria</a>
+          <a href="#zonas" class="footer-link">Godoy Cruz</a>
+          <a href="#zonas" class="footer-link">Luján de Cuyo</a>
+          <a href="#zonas" class="footer-link">Maipú</a>
+          <a href="#zonas" class="footer-link">Guaymallén</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-titulo">Contacto</div>
+        <div class="footer-links">
+          <a href="#contacto" class="footer-link">Formulario de contacto</a>
+          <a href="#" class="footer-link" id="footer-wsp">WhatsApp</a>
+          <a href="#faq"      class="footer-link">Preguntas frecuentes</a>
+          <a href="#blog"     class="footer-link">Blog</a>
+          <a href="#nosotros" class="footer-link">Sobre nosotros</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Buhonegro Propiedades. Todos los derechos reservados.</div>
+      <div class="footer-legal">
+        <a href="#">Política de privacidad</a>
+        <a href="#">Términos y condiciones</a>
+        <a href="#">Aviso legal</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- Toast notification -->
+<div class="toast" id="toast"></div>
+
+
+<!-- ============================================================
+     SCRIPTS
+     ============================================================ -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/scroll-tour.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
